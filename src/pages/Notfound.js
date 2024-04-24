@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const Notfound = ()=> {
     return (
         <>
@@ -5,3 +7,5 @@ export const Notfound = ()=> {
         </>
     );
 }
+
+export default Notfound;
