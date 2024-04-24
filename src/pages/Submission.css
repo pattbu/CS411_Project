@@ -38,3 +38,26 @@
   .result-box p {
     margin-bottom: 0;
   }  
+
+  /* Define the navigation bar */
+nav {
+    background-color: #333; /* Set background color */
+    overflow: hidden; /* Ensure contents don't overflow */
+  }
+  
+  /* Style the navigation links */
+  nav a {
+    float: left; /* Float the links to the left */
+    display: block; /* Make the links block-level elements */
+    color: white; /* Set text color */
+    text-align: center; /* Center-align text */
+    padding: 14px 20px; /* Add padding */
+    text-decoration: none; /* Remove default underline */
+  }
+  
+  /* Change color on hover */
+  nav a:hover {
+    background-color: #ddd; /* Change background color */
+    color: black; /* Change text color */
+  }
+  
