@@ -1,0 +1,40 @@
+/* css function for box with the api results: name and moon phase/astrological sign
+
+/*add structure for navigation bar menu and copy into all css files 
+
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  /* Container styles */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Result box styles */
+  .result-box {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .result-box h2 {
+    margin-bottom: 10px;
+  }
+  
+  .result-box p {
+    margin-bottom: 0;
+  }  
