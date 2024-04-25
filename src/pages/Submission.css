@@ -2,9 +2,18 @@
 
 /*add structure for navigation bar menu and copy into all css files 
 
-
-
 /* Reset default margin and padding */
+
+.sidebar-container {
+    background-color: white;
+    width: 250px;
+    height: 25vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
 * {
     margin: 0;
     padding: 0;
