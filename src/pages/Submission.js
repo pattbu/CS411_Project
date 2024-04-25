@@ -1,5 +1,7 @@
 //add popup for signin/signup to save results, otherwise results will be lost
 
+import Sidebar from '../Components/Sidebar.js';
+
 import React, { useState, useEffect } from 'react';
 
 export const Submission = ()=> {
