@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import GenderDropdown from '../Dropdowns/GenderDropdown.js';
 import LetterDropdown from '../Dropdowns/LetterDropdown.js';
 import LocationDropdown from '../Dropdowns/LocationDropdown.js';
-
+import axios from 'axios';
 
 class Homepage extends React.Component {
     // const [addClick,setAddClick] = React.useState("");
@@ -31,15 +31,22 @@ class Homepage extends React.Component {
     
       
       handleSubmit = () => {
-        const { selectedGender } = this.state;
-        const { selectedLetter } = this.state;
-        const { selectedLocation } = this.state;
+        const { selectedGender, selectedLetter, selectedLocation } = this.state;
+
         //API CALL
-    
         console.log('Selected gender:', selectedGender);
         console.log('Selected First Letter:', selectedLetter);
         console.log('Selected Location:', selectedLocation);
+
         // Add further logic for form submission
+        const formData = {
+          gender: selectedGender,
+          letter: selectedLetter,
+          location: selectedLocation,
+        };
+        
+
+
       };
     
       render() {
