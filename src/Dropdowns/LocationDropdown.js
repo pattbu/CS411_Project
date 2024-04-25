@@ -56,7 +56,6 @@ const country = [
     { value: 'Maori', label: 'Maori' },
     { value: 'Mongolian', label: 'Mongolian' },
     { value: 'Native American', label: 'Native American' },
-    { value: 'Malaysian', label: 'Malaysian' },
     { value: 'Persian', label: 'Persian' },
     { value: 'Polish', label: 'Polish' },
     { value: 'Polynesian', label: 'Polynesian' },
