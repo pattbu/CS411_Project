@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Sidebar from './components/Sidebar'; // Import the Sidebar component
 
 // Separate component for the Account details
 const AccountDetails = () => {
@@ -56,11 +57,7 @@ const Account = () => {
   return (
     <>
       <h1>Account page</h1>
-      <select value={selectedPage} onChange={handlePageChange}>
-        <option value="Account">Account</option>
-        <option value="Submit">Submit</option>
-        <option value="Homepage">Home</option>
-      </select>
+      <Sidebar />
       {selectedPage === 'Account' && <AccountDetails />}
       {/* Add components for other pages as needed */}
     </>
