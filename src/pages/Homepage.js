@@ -4,7 +4,9 @@ import ReactDOM from 'react-dom/client';
 import GenderDropdown from '../Dropdowns/GenderDropdown.js';
 import LetterDropdown from '../Dropdowns/LetterDropdown.js';
 import LocationDropdown from '../Dropdowns/LocationDropdown.js';
-
+import axios from 'axios';
+import Submission from '../pages/Submission';
+import Sidebar from '../Components/Sidebar.js';
 
 class Homepage extends React.Component {
     // const [addClick,setAddClick] = React.useState("");
@@ -31,35 +33,39 @@ class Homepage extends React.Component {
     
       
       handleSubmit = () => {
-        const { selectedGender } = this.state;
-        const { selectedLetter } = this.state;
-        const { selectedLocation } = this.state;
+        const { selectedGender, selectedLetter, selectedLocation } = this.state;
+
         //API CALL
-    
         console.log('Selected gender:', selectedGender);
         console.log('Selected First Letter:', selectedLetter);
         console.log('Selected Location:', selectedLocation);
-        // Add further logic for form submission
       };
     
       render() {
         return (
-          <div className="App">
-            <h1>Baby Namer 3000</h1>
-            {/* <GenderDropdown onSelectGender={this.handleSelectGender} /> */}
-            <GenderDropdown
-              onChange={this.handleSelectGender}
-            />
-            {/* Add other dropdowns and form elements */}
-            <LetterDropdown
-              onChange={this.handleSelectLetter}
-            />
-            {/* Add other dropdowns and form elements */}
-            <LocationDropdown
-              onChange={this.handleSelectLocation}
-            />
-            <button onClick={this.handleSubmit}>Submit</button>
-          </div>
+          <html>
+            <div className="App">
+              <h1>Baby Namer 3000</h1>
+              {/* <GenderDropdown onSelectGender={this.handleSelectGender} /> */}
+                <GenderDropdown
+                  onChange={this.handleSelectGender}
+                />
+                {/* Add other dropdowns and form elements */}
+                <LetterDropdown
+                  onChange={this.handleSelectLetter}
+                />
+                {/* Add other dropdowns and form elements */}
+                <LocationDropdown
+                  onChange={this.handleSelectLocation}
+                />
+                <button onClick={this.handleSubmit}>Submit</button>
+            </div>
+            <div classname="Sidebar">
+              <Sidebar/>
+            </div>
+
+          </html>
+            
         );
       }
 }

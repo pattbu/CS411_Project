@@ -5,7 +5,7 @@ import './DropdownStyles.css'; // Import your CSS file
 const GenderDropdown = () => {
         return (
             <div className="dropdown-container">
-                <label className="dropdown-label">Select Letter</label>
+                <label className="dropdown-label">Select Gender</label>
                 {/* <Select></Select> */}
                 <select>
                     {Genders.map(({ value, label }) => (
