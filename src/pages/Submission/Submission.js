@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Sidebar  from '../Components/Sidebar/Sidebar';
+import Sidebar  from '../../Components/Sidebar/Sidebar';
 
 const Submission = ({ gender, month, day, year }) => {
     const [apiData, setApiData] = useState(null);
@@ -21,6 +21,10 @@ const Submission = ({ gender, month, day, year }) => {
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
+
+
+
+    
     const handleClosePopup = () => {
         setShowPopup(false);
     };

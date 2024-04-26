@@ -1,12 +1,13 @@
 import './Homepage.css';
 import React, { useState } from 'react';
-import GenderDropdown from '../Components/Dropdowns/GenderDropdown.js';
-import Sidebar from '../Components/Sidebar/Sidebar.js';
-import DateDropdown from '../Components/Dropdowns/Datedropdown.js';
+import GenderDropdown from '../../Components/Dropdowns/GenderDropdown.js';
+import Sidebar from '../../Components/Sidebar/Sidebar.js';
+import DateDropdown from '../../Components/Dropdowns/Datedropdown.js';
 import { useNavigate } from "react-router-dom";
 
 
-const Homepage = () => {
+const Homepage = (props) => {
+  const {loggedIn, email} = props
   const [selectedGender, setSelectedGender] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [selectedDay, setSelectedDay] = useState(null);
@@ -63,6 +64,15 @@ const Homepage = () => {
         <Sidebar />
       </div>
       <div className="Login">
+        <div className={'buttonContainer'}>
+          <input
+              className={'inputButton'}
+              type="button"
+              onClick={loginbutton}
+              value={loggedIn ? 'Log out' : 'Log in'}
+          />
+           {loggedIn ? <div>Your email address is {email}</div> : <div />}
+        </div>
 
       </div>
     </div>
