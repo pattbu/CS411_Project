@@ -48,22 +48,4 @@ const AccountDetails = () => {
   );
 };
 
-// Main Account component for page navigation
-const Account = () => {
-  const [selectedPage, setSelectedPage] = useState('Account'); // Default selected page is 'Account'
-
-  const handlePageChange = (event) => {
-    setSelectedPage(event.target.value);
-  };
-
-  return (
-    <>
-      <h1>Account page</h1>
-      <Sidebar />
-      {selectedPage === 'Account' && <AccountDetails />}
-      {/* Add components for other pages as needed */}
-    </>
-  );
-};
-
 export default Account;
