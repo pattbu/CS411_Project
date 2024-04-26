@@ -4,6 +4,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  z-index: -1; /* Ensure background is behind other content */
+  background: linear-gradient(165deg, #3494e6, #ec6ead);
+  #background: linear-gradient(45deg, #ff7e5f, #feb47b, #fffbab, #cfff95, #6dffb2, #5ddfff, #8793ff, #ffa1ff, #ff5e7e); /* Rainbow :) */
+  background-size: 300% 300%;
+  animation: gradientAnimation 15s ease infinite;
+}
 
 /* Set up a full-page background */
 body {
@@ -13,18 +25,32 @@ body {
   justify-content: center; /* Center items horizontally */
   align-items: top; /* Center items vertically */
   height: 100vh; /* Take up the full height of the viewport */
-  background: linear-gradient(165deg, #3494e6, #ec6ead); /* Gradient background */
-  animation: moveAnimation 7s ease infinite; /* Added move animation */ /* Added rotation animation */
+  animation: moveAnimation 20s ease infinite; /* Added move animation */ /* Added rotation animation */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%; 
+	transform-origin: rotate(0deg)
+  }
+  50% {
+    background-position: 100% 50%;
+	transform-origin: rotate(180deg)
+  }
+  100% {
+    background-position: 0% 50%;
+	transform-origin: rotate(0deg)
+  }
 }
 
 @keyframes moveAnimation {
   0%, 100% {
     background-position: 0% 50%; /* Initial position */
-    transform: translateY(8px) rotate(-1deg);
+    transform-origin: translateY(0px) rotate(0deg) scale(1);
   }
   50% {
     background-position: 100% 50%; /* Intermediate position */
-    transform: translateY(20px) rotate(1deg);
+    transform-origin: translateY(4px) rotate(0.5deg) scale(0.99);
   }
 }
 
@@ -139,7 +165,6 @@ button {
 button:hover {
   background-color: #0056b3;
 }
-
 
 .GenderDropdown 
 .LetterDropdown
