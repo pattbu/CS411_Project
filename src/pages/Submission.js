@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import Sidebar  from '../Components/Sidebar/Sidebar';
 
 const Submission = ({ gender, month, day, year }) => {
     const [apiData, setApiData] = useState(null);
@@ -46,6 +47,9 @@ const Submission = ({ gender, month, day, year }) => {
                     </div>
                 </div>
             )}
+            <div>
+                <Sidebar/>
+            </div>
         </div>
     );
 };
