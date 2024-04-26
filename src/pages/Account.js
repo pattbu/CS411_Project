@@ -33,6 +33,7 @@ const AccountDetails = () => {
   return (
     <>
       <h1>Account Page</h1>
+      <Sidebar />
       <div>
         <h2>Username: {username}</h2>
         <h2>Baby Names History:</h2>
