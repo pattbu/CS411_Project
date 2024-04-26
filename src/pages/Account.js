@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
 import Sidebar from '../Components/Sidebar.js';
-=======
-import Sidebar from '../Components/Sidebar.js'; // Import the Sidebar component
->>>>>>> b1d76623c02f074442ef8e969b2914d026226080
+
 
 // Separate component for the Account details
 const AccountDetails = () => {
