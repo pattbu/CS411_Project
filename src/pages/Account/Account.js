@@ -32,8 +32,9 @@ const AccountDetails = () => {
   }, []);
 
   return (
-    <>
-      <h1>Account Page</h1>
+    <div classname="App">
+	  <div class="background">
+	  </div>
       <div>
         <h2>Username: {username}</h2>
         <h2>Baby Names History:</h2>
@@ -42,8 +43,9 @@ const AccountDetails = () => {
             <li key={babyName.id}>{babyName.name} ({babyName.gender}), Year: {babyName.year}</li>
           ))}
         </ul>
-      </div>
-    </>
+		
+    </div>
+    </div>
   );
 };
 

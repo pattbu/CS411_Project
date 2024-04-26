@@ -74,7 +74,6 @@ const Homepage = (props) => {
           />
            {loggedIn ? <div>Your email address is {email}</div> : <div />}
         </div>
-
       </div>
     </div>
   );
