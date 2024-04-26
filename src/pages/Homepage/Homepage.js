@@ -50,7 +50,8 @@ const Homepage = (props) => {
   };
 
   return (
-    <div className="App">
+    <div classname="App">
+	<div class="background"></div>
       <h1>Baby Namer 3000</h1>
       <GenderDropdown onSelectedGender={handleSelectGender} />
       <DateDropdown
