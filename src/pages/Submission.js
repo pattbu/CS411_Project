@@ -47,9 +47,12 @@ export const Submission = ()=> {
                         <p>Sign in or sign up to save your results!</p>
                         {/* Add sign in/sign up form here */}
                     </div>
+                    
                 </div>
             )}
+            
         </div>
+        
     );
 }
 

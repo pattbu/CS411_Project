@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Sidebar from './components/Sidebar'; // Import the Sidebar component
+import Sidebar from '../Components/Sidebar.js';
 
 // Separate component for the Account details
 const AccountDetails = () => {
