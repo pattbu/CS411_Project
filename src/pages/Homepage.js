@@ -44,6 +44,7 @@ class Homepage extends React.Component {
       render() {
         return (
           <html>
+			<div class="background"></div>
             <div className="App">
               <h1>Baby Namer 3000</h1>
               {/* <GenderDropdown onSelectGender={this.handleSelectGender} /> */}

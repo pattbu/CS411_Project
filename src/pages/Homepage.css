@@ -1,22 +1,156 @@
-.Homepage {
-  font-family: Arial, sans-serif;
-  margin: 0 auto;
-  padding: 20px;
-  max-width: 600px;
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  z-index: -1; /* Ensure background is behind other content */
+  background: linear-gradient(165deg, #3494e6, #ec6ead);
+  #background: linear-gradient(45deg, #ff7e5f, #feb47b, #fffbab, #cfff95, #6dffb2, #5ddfff, #8793ff, #ffa1ff, #ff5e7e); /* Rainbow :) */
+  background-size: 300% 300%;
+  animation: gradientAnimation 15s ease infinite;
 }
 
+/* Set up a full-page background */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa; /* Light gray background */
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: top; /* Center items vertically */
+  height: 100vh; /* Take up the full height of the viewport */
+  animation: moveAnimation 20s ease infinite; /* Added move animation */ /* Added rotation animation */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%; 
+	transform-origin: rotate(0deg)
+  }
+  50% {
+    background-position: 100% 50%;
+	transform-origin: rotate(180deg)
+  }
+  100% {
+    background-position: 0% 50%;
+	transform-origin: rotate(0deg)
+  }
+}
+
+@keyframes moveAnimation {
+  0%, 100% {
+    background-position: 0% 50%; /* Initial position */
+    transform-origin: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    background-position: 100% 50%; /* Intermediate position */
+    transform-origin: translateY(4px) rotate(0.5deg) scale(0.99);
+  }
+}
+
+/* Container for the homepage content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Main heading styles */
 h1 {
-  margin-top: 20px;
-  font-size: 24px;
+  font-size: 48px;
+  color: #333;
   margin-bottom: 20px;
 }
 
-body {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 200px;
+/* Subheading styles */
+h2 {
+  font-size: 24px;
+  color: #666;
+  margin-bottom: 20px;
 }
 
+/* Button styles */
+
+/* Button styles */
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff; /* Blue primary color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3; /* Darker shade of blue on hover */
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Feature section */
+.feature {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.feature-item {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  color: #666;
+}
+
+/* Footer styles */
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .button {
+    font-size: 16px;
+  }
+}
 
 button {
   margin-top: 20px;
