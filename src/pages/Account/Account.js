@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD:src/pages/Account.js
-import Sidebar from '../Components/Sidebar.js';
-=======
 import Sidebar from '../../Components/Sidebar/Sidebar.js';
-
->>>>>>> 06d714ce801a397a3998c7462d08a1f7475cbf06:src/pages/Account/Account.js
 
 // Separate component for the Account details
 const AccountDetails = () => {
@@ -37,12 +32,8 @@ const AccountDetails = () => {
 
   return (
     <>
-<<<<<<< HEAD:src/pages/Account.js
-
-=======
       <h1>Account</h1>
       <Sidebar />
->>>>>>> 06d714ce801a397a3998c7462d08a1f7475cbf06:src/pages/Account/Account.js
       <div>
         <h2>Username: {username}</h2>
         <h2>Baby Names History:</h2>
@@ -56,7 +47,6 @@ const AccountDetails = () => {
   );
 };
 
-<<<<<<< HEAD:src/pages/Account.js
 // Main Account component for page navigation
 const Account = () => {
   const [selectedPage, setSelectedPage] = useState('Account'); // Default selected page is 'Account'
@@ -74,7 +64,4 @@ const Account = () => {
     </>
   );
 };
-
-=======
->>>>>>> 06d714ce801a397a3998c7462d08a1f7475cbf06:src/pages/Account/Account.js
 export default Account;
