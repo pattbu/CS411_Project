@@ -1,13 +1,10 @@
-//add popup for signin/signup to save results, otherwise results will be lost
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import Sidebar from '../Components/Sidebar.js';
-
-import React, { useState, useEffect } from 'react';
-
-export const Submission = ()=> {
+const Submission = ({ gender, month, day, year }) => {
     const [apiData, setApiData] = useState(null);
     const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
-
+    
     useEffect(() => {
         const apiUrl = 'https://api.example.com/data';
 
@@ -47,13 +44,10 @@ export const Submission = ()=> {
                         <p>Sign in or sign up to save your results!</p>
                         {/* Add sign in/sign up form here */}
                     </div>
-                    
                 </div>
             )}
-            
         </div>
-        
     );
-}
+};
 
 export default Submission;

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Sidebar from '../Components/Sidebar.js';
+import Sidebar from '../Components/Sidebar/Sidebar.js';
 
 
 // Separate component for the Account details
 const AccountDetails = () => {
-  // State to store the username obtained from OAuth
+// State to store the username obtained from OAuth
   const [username, setUsername] = useState('');
 
   // State to store the history of created baby names

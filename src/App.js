@@ -9,14 +9,11 @@ export const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" exact element={<Homepage />}>
-        </Route>
-        <Route path="/account" exact element={<Account />}>
-        </Route>
-        <Route path="/submission" exact element={<Submission />}>
-        </Route>
-        <Route path="/not-found" exact element={<Notfound />}>
-        </Route>
+        <Route path="/" exact element={<Homepage />}/>
+        <Route path="/account" exact element={<Account />}/>
+        <Route path="/submission/*"  element={<Submission />}/>
+        <Route path="/not-found"  element={<Notfound />}/>
+        <Route login="/login" exact element={<Notfound />}/>
       </Routes>
     </Router>
   );

@@ -1,73 +1,72 @@
 import './Homepage.css';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import GenderDropdown from '../Dropdowns/GenderDropdown.js';
-import LetterDropdown from '../Dropdowns/LetterDropdown.js';
-import LocationDropdown from '../Dropdowns/LocationDropdown.js';
-import axios from 'axios';
-import Submission from '../pages/Submission';
-import Sidebar from '../Components/Sidebar.js';
+import React, { useState } from 'react';
+import GenderDropdown from '../Components/Dropdowns/GenderDropdown.js';
+import Sidebar from '../Components/Sidebar/Sidebar.js';
+import DateDropdown from '../Components/Dropdowns/Datedropdown.js';
+import { useNavigate } from "react-router-dom";
 
-class Homepage extends React.Component {
-    // const [addClick,setAddClick] = React.useState("");
-    //use the state variable to store and and save it make the axios reuqest in which the ""
-    constructor(props) {
-        super(props);
-        this.state = {
-          selectedGender: null,
-          selectedLocation: null,
-          selectedLetter: null,
-        };
+
+const Homepage = () => {
+  const [selectedGender, setSelectedGender] = useState(null);
+  const [selectedMonth, setSelectedMonth] = useState(null);
+  const [selectedDay, setSelectedDay] = useState(null);
+  const [selectedYear, setSelectedYear] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+
+  const handleSelectGender = (selectedOption) => {
+    setSelectedGender(selectedOption);
+  };
+
+  const handleSelectMonth = (selectedOption) => {
+    setSelectedMonth(selectedOption);
+  };
+
+  const handleSelectDay = (selectedOption) => {
+    setSelectedDay(selectedOption);
+  };
+
+  const handleSelectYear = (selectedOption) => {
+    setSelectedYear(selectedOption);
+  };
+
+  const handleSubmit = () => {
+    if (selectedGender && selectedMonth && selectedDay && selectedYear) {
+      let submissionURL = `/submission?gender=${selectedGender}&month=${selectedMonth}&year=${selectedYear}`;
+      if (selectedDay) {
+        submissionURL += `&day=${selectedDay}`;
       }
-      handleSelectGender = (selectedOption) => {
-        this.setState({ selectedGender: selectedOption.value });
-      };
-    
-      handleSelectLetter = (selectedOption) => {
-        this.setState({ selectedLetter: selectedOption.value });
-      };
-    
-      handleSelectLocation = (selectedOption) => {
-        this.setState({ selectedLocation: selectedOption.value });
-      };
-    
-      
-      handleSubmit = () => {
-        const { selectedGender, selectedLetter, selectedLocation } = this.state;
+      navigate(submissionURL);
+    } else {
+      setErrorMessage('Please select all dropdown menus before submitting.');
+    }
+  };
 
-        //API CALL
-        console.log('Selected gender:', selectedGender);
-        console.log('Selected First Letter:', selectedLetter);
-        console.log('Selected Location:', selectedLocation);
-      };
-    
-      render() {
-        return (
-          <html>
-			<div class="background"></div>
-            <div className="App">
-              <h1>Baby Namer 3000</h1>
-              {/* <GenderDropdown onSelectGender={this.handleSelectGender} /> */}
-                <GenderDropdown
-                  onChange={this.handleSelectGender}
-                />
-                {/* Add other dropdowns and form elements */}
-                <LetterDropdown
-                  onChange={this.handleSelectLetter}
-                />
-                {/* Add other dropdowns and form elements */}
-                <LocationDropdown
-                  onChange={this.handleSelectLocation}
-                />
-                <button onClick={this.handleSubmit}>Submit</button>
-            </div>
-            <div classname="Sidebar">
-              <Sidebar/>
-            </div>
+  const loginbutton = () =>{
+    if(0){
 
-          </html>
-            
-        );
-      }
-}
+    }
+  };
+
+  return (
+    <div className="App">
+      <h1>Baby Namer 3000</h1>
+      <GenderDropdown onSelectedGender={handleSelectGender} />
+      <DateDropdown
+        onSelectYear={handleSelectYear}
+        onSelectMonth={handleSelectMonth}
+        onSelectDay={handleSelectDay}
+      />
+      <button onClick={handleSubmit}>Submit</button>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <div className="Sidebar">
+        <Sidebar />
+      </div>
+      <div className="Login">
+
+      </div>
+    </div>
+  );
+};
+
 export default Homepage;
