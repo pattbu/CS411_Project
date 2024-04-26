@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
 import Sidebar from '../Components/Sidebar.js';
-=======
-import Sidebar from '../Components/Sidebar.js'; // Import the Sidebar component
->>>>>>> b1d76623c02f074442ef8e969b2914d026226080
 
 // Separate component for the Account details
 const AccountDetails = () => {
@@ -36,7 +32,7 @@ const AccountDetails = () => {
 
   return (
     <>
-      <h1>Account Page</h1>
+
       <div>
         <h2>Username: {username}</h2>
         <h2>Baby Names History:</h2>
@@ -60,7 +56,7 @@ const Account = () => {
 
   return (
     <>
-      <h1>Account page</h1>
+      <h1>Account</h1>
       <Sidebar />
       {selectedPage === 'Account' && <AccountDetails />}
       {/* Add components for other pages as needed */}
