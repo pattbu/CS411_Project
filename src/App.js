@@ -1,47 +1,27 @@
-import './App.css';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import GenderDropdown from './Dropdowns/GenderDropdown.js'; // Updated import
-import LetterDropdown from './Dropdowns/LetterDropdown.js';
-import LocationDropdown from './Dropdowns/LocationDropdown.js';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; // Assuming you're using React Router
+
+import Homepage from './pages/Homepage/Homepage';
+import Submission from './pages/Submission/Submission';
+import Account from './pages/Account/Account';
+import Notfound from './pages/Notfound';
+
+function App() {
+  
+  
+  //https://clerk.com/blog/building-a-react-login-page-template
+  
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" exact element={<Homepage />}/>
+        <Route path="/account" exact element={<Account />}/>
+        <Route path="/submission/*"  element={<Submission />}/>
+        <Route path="/not-found"  element={<Notfound />}/>
+      </Routes>
+    </Router>
+  );
+};
 
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedGender: '',
-      selectedLocation: '',
-      selectedLetter: '',
-    };
-  }
-
-  //Need To Fix 
-  handleSelectGender = (selectedOption) => {
-    this.setState({ selectedGender: selectedOption.value });
-  };
-
-  //Need To Fix 
-  handleSubmit = () => {
-    const { selectedGender } = this.state;
-    console.log('Selected gender:', selectedGender);
-    // Add further logic for form submission
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <h1>Baby Namer 3000</h1>
-        {/* <GenderDropdown onSelectGender={this.handleSelectGender} /> */}
-        <GenderDropdown/>
-        {/* Add other dropdowns and form elements */}
-        <LetterDropdown/>
-        {/* Add other dropdowns and form elements */}
-        <LocationDropdown/>
-        <button onClick={this.handleSubmit}>Submit</button>
-      </div>
-    );
-  }
-}
+//<Route login="/login" exact element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
 export default App;
-

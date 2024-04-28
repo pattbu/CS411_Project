@@ -1,0 +1,27 @@
+.sidebar-container {
+    background-color: white;
+    width: 125px;
+    height: 35vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+  
+.sidebar-container-closed {
+    transform: translateX(-200px);
+}
+
+.toggle-sidebar-btn{
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: black ;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+
