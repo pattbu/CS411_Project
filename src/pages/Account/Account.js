@@ -34,7 +34,6 @@ const AccountDetails = () => {
 
   return (
     <>
-      <h1>Account</h1>
       <Sidebar />
       <h1>Account Page</h1>
       <div>
@@ -60,7 +59,6 @@ const Account = () => {
 
   return (
     <>
-      <h1>Account page</h1>
       <Sidebar />
       {selectedPage === 'Account' && <AccountDetails />}
       {/* Add components for other pages as needed */}
