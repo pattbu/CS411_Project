@@ -31,8 +31,8 @@ router.post('/login-user', async(req,res) =>{
   }
 });
 
-
 router.get('/api/babynames?gender=', async (req, res) => {
+  try {
   const gender = req.query.gender || 'neutral';
   const options = {
     method: 'GET',
@@ -43,8 +43,6 @@ router.get('/api/babynames?gender=', async (req, res) => {
       'X-RapidAPI-Host': 'baby-names-by-api-ninjas.p.rapidapi.com'
     }
   };
-
-  try {
     const response = await axios.request(options);
     res.json(response.data);
   } catch (error) {
@@ -52,5 +50,26 @@ router.get('/api/babynames?gender=', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch baby names', message: error.message });
   }
 });
+
+router.get('/api/special', async (req, res) => {
+  try {
+    const month = req.query.month;
+    const day = req.query.day;
+    const options = {
+      method: 'GET',
+      url: `https://day-special-finder-api.p.rapidapi.com/all/${month}/${day}`,
+      headers: {
+        'X-RapidAPI-Key': 'f3ecad7dd9mshd03659d07014c7cp1e6a74jsn817e07d03b3d',
+        'X-RapidAPI-Host': 'day-special-finder-api.p.rapidapi.com'
+      }
+    };
+    const response = await axios.request(options);
+    res.json(response.data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 module.exports = router;

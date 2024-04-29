@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 
 const Submission = () => {
     const [apiData, setApiData] = useState(null);
+    const [nameapi, setNameApi] = useState(null);
     const [showPopup, setShowPopup] = useState(false);
     const location = useLocation();
     const params = new URLSearchParams(location.search);
@@ -17,6 +18,7 @@ const Submission = () => {
     useEffect(() => {
         console.log(gender, month, day, year);
         fetchBabyName(gender, day);
+        fetchSpecial(month,day);
     },[gender, day]);
 
     const fetchBabyName = async (gender, day) => {
@@ -26,27 +28,25 @@ const Submission = () => {
             throw new Error(`Error: ${response.status}`);
           }
           const data = await response.json();
-          setApiData(data);
-      /*
-          let result = '';
-          if (day > 0 && day <= 10) {
-            result = data[day];
-          } else if (day > 10 && day <= 20) {
-            result = data[day - 10];
-          } else if (day > 20 && day <= 30) {
-            result = data[day - 20];
-          } else {
-            result = data[0];
-          }
-          return result;
-    */  
+          setNameApi(data); 
         } catch (error) {
           console.error('Error fetching baby name:', error);
-          setApiData(null);
+          setNameApi(null);
         }
     };
 
-    
+    const fetchSpecial = async (month, day) => {
+        try {
+            const response = await fetch(`/api/special?month=${month}&day=${day}`);
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
+            const data = await response.json();
+            setApiData(data);
+        } catch (error) {
+            console.error('Error fetching special data:', error);
+        }
+    };
     const handleClosePopup = () => {
         setShowPopup(false);
     };

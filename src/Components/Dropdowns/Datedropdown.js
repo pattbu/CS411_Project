@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const DateDropdown = ({ onSelectMonth, onSelectDay, onSelectYear }) => {
     const currentYear = new Date().getFullYear();
     const years = Array.from({ length: 10 }, (_, i) => currentYear + i);
-    const months = Array.from({ length: 12 }, (_, i) => i + 1);
+    const months = Array.from({ length: 12 }, (_, i) => (i + 1).toString().padStart(2, '0'));
 
     const [selectedMonth, setSelectedMonth] = useState(null);
     const [selectedYear, setSelectedYear] = useState(null);
@@ -17,7 +17,7 @@ const DateDropdown = ({ onSelectMonth, onSelectDay, onSelectYear }) => {
             } else if ([4, 6, 9, 11].includes(selectedMonth)) {
                 daysInMonth = 30;
             }
-            setDays(Array.from({ length: daysInMonth }, (_, i) => i + 1));
+            setDays(Array.from({ length: daysInMonth }, (_, i) => (i + 1).toString().padStart(2, '0')));
         }
     }, [selectedMonth, selectedYear]);
 

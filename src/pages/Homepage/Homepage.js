@@ -34,9 +34,10 @@ const Homepage = (props) => {
 
   const handleSubmit = () => {
     if (selectedGender && selectedMonth && selectedDay && selectedYear) {
-      let submissionURL = `/submission?gender=${selectedGender}&month=${selectedMonth}&year=${selectedYear}`;
+      let formattedMonth = selectedMonth.toString().padStart(2, '0');
+      let submissionURL = `/submission?gender=${selectedGender}&year=${selectedYear}`;
       if (selectedDay) {
-        submissionURL += `&day=${selectedDay}`;
+        submissionURL += `&day=${selectedDay}&month=${formattedMonth}`;
       }
       navigate(submissionURL);
     } else {
