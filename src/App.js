@@ -5,6 +5,7 @@ import Submission from './pages/Submission/Submission';
 import Account from './pages/Account/Account';
 import Notfound from './pages/Notfound';
 import Login from './pages/Login/login'
+import Stories from './Stories';
 
 function App() {
   
