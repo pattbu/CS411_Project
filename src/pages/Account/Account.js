@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
 
 import Sidebar from '../../Components/Sidebar/Sidebar.js';
-=======
 import Sidebar from '../../Components/Sidebar/Sidebar.js';
 
->>>>>>> f4dda0b3da1978c7e569cedd8876df7a2ce31f87
 
 // Separate component for the Account details
 const AccountDetails = () => {
@@ -38,12 +35,9 @@ const AccountDetails = () => {
 
   return (
     <>
-<<<<<<< HEAD
       <h1>Account</h1>
       <Sidebar />
-=======
       <h1>Account Page</h1>
->>>>>>> f4dda0b3da1978c7e569cedd8876df7a2ce31f87
       <div>
         <h2>Username: {username}</h2>
         <h2>Baby Names History:</h2>
