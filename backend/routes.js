@@ -1,28 +1,18 @@
 
 const express = require("express");
 const axios = require("axios");
-const Story = require("./models/user");
+const User = require("./models/user");
 
 const router = express.Router();
 
-// Fetch baby names from the API
-router.get("/baby-names", async (req, res) => {
-  try {
-    const response = await axios.get(
-      "https://api.babynames.com/v1/names/?gender=both&start=A&count=10"
-    );
-    res.json(response.data.names);
-  } catch (error) {
-    res.status(500).send(error.toString());
-  }
-});
+
 
 //Creating a new User
 router.post('/create-user', async(req,res) =>{
   try{
     const user = await User({
-      email:'Dave',
-      password:'123',});
+      email:'',
+      });
       res.json(user);
   }catch(error){
     res.status(500).send(error.toString());
@@ -34,7 +24,7 @@ router.post('/login-user', async(req,res) =>{
   try{
     const user = await User({
       email:'',
-      password:'',});
+      });
       res.json(user);
   }catch(error){
     res.status(500).send(error.toString());
@@ -42,14 +32,24 @@ router.post('/login-user', async(req,res) =>{
 });
 
 
+router.get('/api/babynames?gender=', async (req, res) => {
+  const gender = req.query.gender || 'neutral';
+  const options = {
+    method: 'GET',
+    url: 'https://baby-names-by-api-ninjas.p.rapidapi.com/v1/babynames',
+    params: { gender: gender },
+    headers: {
+      'X-RapidAPI-Key': 'c7b1e7049fmshbb9e2a30a0241d7p17f765jsn8a681bb98066',
+      'X-RapidAPI-Host': 'baby-names-by-api-ninjas.p.rapidapi.com'
+    }
+  };
 
-
-// Save a story to MongoDB (if needed)
-router.post("/save-story", async (req, res) => {
   try {
-    // Implementation for saving stories to MongoDB goes here if necessary
+    const response = await axios.request(options);
+    res.json(response.data);
   } catch (error) {
-    res.status(500).send(error.toString());
+    console.error(error);
+    res.status(500).json({ error: 'Failed to fetch baby names', message: error.message });
   }
 });
 
