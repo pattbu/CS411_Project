@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -64,6 +65,14 @@ const Login = () => {
             // Handle other errors, e.g., network error
         }
     };
+	
+	const navigate = useNavigate();
+	
+	const credentialResponse = () => {
+		//console.log(credentialResponse);
+		//Do stuff here with oauth stuff I guess
+		navigate("/");
+	}
 
     return (
 	<GoogleOAuthProvider clientId="317132464294-f5d05oi2oooico1m50kkr3i4v5i51nbc.apps.googleusercontent.com">
@@ -114,9 +123,7 @@ const Login = () => {
                 <button type="submit">Sign Up</button>
             </form>
 			<GoogleLogin
-			  onSuccess={credentialResponse => {
-				console.log(credentialResponse);
-			  }}
+			  onSuccess={credentialResponse}
 			  onError={() => {
 				console.log('Login Failed');
 			  }}
