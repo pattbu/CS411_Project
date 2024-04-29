@@ -71,6 +71,7 @@ const Login = () => {
 	const credentialResponse = () => {
 		//console.log(credentialResponse);
 		//Do stuff here with oauth stuff I guess
+
 		navigate("/");
 	}
 
