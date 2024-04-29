@@ -120,8 +120,8 @@ const Login = () => {
 			  onError={() => {
 				console.log('Login Failed');
 			  }}
+			/>
         </div>
-		
 	</GoogleOAuthProvider>
     );
 };
