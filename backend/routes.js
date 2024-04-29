@@ -18,12 +18,6 @@ router.get("/baby-names", async (req, res) => {
 });
 
 
-
-
-
-
-
-
 // Save a story to MongoDB (if needed)
 router.post("/save-story", async (req, res) => {
   try {

@@ -11,4 +11,5 @@
            {loggedIn ? <div>Your email address is {email}</div> : <div />}
 </div>
 
+//mongodb+srv://<username>:<password>@cs411project.lnvsr0b.mongodb.net/
 */
