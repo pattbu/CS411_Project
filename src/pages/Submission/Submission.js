@@ -2,32 +2,25 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Sidebar  from '../../Components/Sidebar/Sidebar';
 
+import axios from 'axios';
+
+const options = {
+  method: 'GET',
+  url: 'https://day-special-finder-api.p.rapidapi.com/all/04/30',
+  headers: {
+    'X-RapidAPI-Key': 'f3ecad7dd9mshd03659d07014c7cp1e6a74jsn817e07d03b3d',
+    'X-RapidAPI-Host': 'day-special-finder-api.p.rapidapi.com'
+  }
+};
+
+try {
+	const response = await axios.request(options);
+	console.log(response.data);
+} catch (error) {
+	console.error(error);
+}
 
 
-
-const Submission = ({ gender, month, day, year }) => {
-    const [apiData, setApiData] = useState(null);
-    const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
-    
-    useEffect(() => {
-        const apiUrl = 'https://api.example.com/data';
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                setApiData(data);
-                // Show popup only if data is not null
-                if (!data) {
-                    setShowPopup(true);
-                }
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }, []);
-
-
-
-
-    
     const handleClosePopup = () => {
         setShowPopup(false);
     };
@@ -59,6 +52,6 @@ const Submission = ({ gender, month, day, year }) => {
             </div>
         </div>
     );
-};
+
 
 export default Submission;
