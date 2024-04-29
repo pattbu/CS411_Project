@@ -28,3 +28,7 @@ yarn.lock
 
 # macOS-specific files
 .DS_Store
+
+
+#Testorcode
+public/testcode.js
