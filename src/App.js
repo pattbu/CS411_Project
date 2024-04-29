@@ -3,15 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Homepage from './pages/Homepage/Homepage';
 import Submission from './pages/Submission/Submission';
 import Account from './pages/Account/Account';
-import Notfound from './pages/Notfound';
 import Login from './pages/Login/login'
-import Stories from './Stories';
 
-function App() {
-  
-  
-  //https://clerk.com/blog/building-a-react-login-page-template
-  
+function App() { 
   return (
     <Router>
       <Routes>
@@ -25,6 +19,4 @@ function App() {
   );
 };
 
-
-//<Route login="/login" exact element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
 export default App;

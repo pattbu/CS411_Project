@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 
 const Homepage = (props) => {
-  const {loggedIn, email} = props
   const [selectedGender, setSelectedGender] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [selectedDay, setSelectedDay] = useState(null);
