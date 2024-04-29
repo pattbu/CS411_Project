@@ -22,11 +22,10 @@ function SidebarComponent() {
       </button>
       {sidebarOpen && (
         <Sidebar>
-          <Menu
-            
+          <Menu 
           >
             <MenuItem>
-              <Link to="/">Login/Sign up</Link>
+              <Link to="/login">Login/Sign up</Link>
             </MenuItem>
             <MenuItem>
               <Link to="/">Home</Link>

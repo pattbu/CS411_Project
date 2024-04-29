@@ -28,3 +28,12 @@ yarn.lock
 
 # macOS-specific files
 .DS_Store
+
+<<<<<<< HEAD
+#.env database
+/backend/.env
+=======
+
+#Testorcode
+public/testcode.js
+

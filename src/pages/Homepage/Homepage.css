@@ -12,7 +12,6 @@
   height: 200%;
   z-index: -1; /* Ensure background is behind other content */
   background: linear-gradient(165deg, #3494e6, #ec6ead);
-  background: linear-gradient(45deg, #ff7e5f, #feb47b, #fffbab, #cfff95, #6dffb2, #5ddfff, #8793ff, #ffa1ff, #ff5e7e); /* Rainbow :) */
   background-size: 300% 300%;
   animation: gradientAnimation 15s ease infinite;
 }
@@ -46,11 +45,11 @@ body {
 @keyframes moveAnimation {
   0%, 100% {
     background-position: 0% 50%; /* Initial position */
-    transform-origin: translateY(0px) rotate(0deg) scale(1);
+    transform: translateY(0px) rotate(0deg) scale(1);
   }
   50% {
     background-position: 100% 50%; /* Intermediate position */
-    transform-origin: translateY(4px) rotate(0.5deg) scale(0.99);
+    transform: translateY(4px) rotate(0.5deg) scale(0.99);
   }
 }
 

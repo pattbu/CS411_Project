@@ -1,7 +1,7 @@
 // server.js
 const express = require("express");
 const mongoose = require("mongoose");
-require("dotenv").config(); // If using dotenv for environment variables
+require("dotenv").config(); 
 const routes = require("../backend/routes");
 const cors = require("cors");
 

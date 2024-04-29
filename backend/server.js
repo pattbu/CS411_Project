@@ -1,13 +1,16 @@
 // server.js
 const express = require("express");
 const mongoose = require("mongoose");
-require("dotenv").config(); // If using dotenv for environment variables
+require("dotenv").config();
 const routes = require("./routes");
 const cors = require("cors");
+
 
 const app = express();
 app.use(cors());
 const port = process.env.PORT || 3000;
+
+console.log('MongoDB URI:', process.env.MONGODB_URI);
 
 mongoose
   .connect(process.env.MONGODB_URI, {

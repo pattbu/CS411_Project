@@ -1,7 +1,7 @@
 
 const express = require("express");
 const axios = require("axios");
-const Story = require("./models/Story");
+const Story = require("./models/user");
 
 const router = express.Router();
 
@@ -17,9 +17,29 @@ router.get("/baby-names", async (req, res) => {
   }
 });
 
+//Creating a new User
+router.post('/create-user', async(req,res) =>{
+  try{
+    const user = await User({
+      email:'Dave',
+      password:'123',});
+      res.json(user);
+  }catch(error){
+    res.status(500).send(error.toString());
+  }
+});
 
-
-
+//Logining in
+router.post('/login-user', async(req,res) =>{
+  try{
+    const user = await User({
+      email:'',
+      password:'',});
+      res.json(user);
+  }catch(error){
+    res.status(500).send(error.toString());
+  }
+});
 
 
 
