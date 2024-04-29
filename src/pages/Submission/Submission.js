@@ -4,22 +4,31 @@ import Sidebar  from '../../Components/Sidebar/Sidebar';
 
 import axios from 'axios';
 
-const options = {
-  method: 'GET',
-  url: 'https://day-special-finder-api.p.rapidapi.com/all/04/30',
-  headers: {
-    'X-RapidAPI-Key': 'f3ecad7dd9mshd03659d07014c7cp1e6a74jsn817e07d03b3d',
-    'X-RapidAPI-Host': 'day-special-finder-api.p.rapidapi.com'
-  }
-};
+const Submission = () => {
+    const [apiData, setApiData] = useState(null);
+    const [showPopup, setShowPopup] = useState(false);
 
-try {
-	const response = await axios.request(options);
-	console.log(response.data);
-} catch (error) {
-	console.error(error);
-}
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const options = {
+                    method: 'GET',
+                    url: 'https://day-special-finder-api.p.rapidapi.com/all/04/30',
+                    headers: {
+                        'X-RapidAPI-Key': 'f3ecad7dd9mshd03659d07014c7cp1e6a74jsn817e07d03b3d',
+                        'X-RapidAPI-Host': 'day-special-finder-api.p.rapidapi.com'
+                    }
+                };
 
+                const response = await axios.request(options);
+                setApiData(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const handleClosePopup = () => {
         setShowPopup(false);
@@ -52,6 +61,6 @@ try {
             </div>
         </div>
     );
-
+};
 
 export default Submission;

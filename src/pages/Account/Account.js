@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import Sidebar from '../../Components/Sidebar/Sidebar.js';
-import Sidebar from '../../Components/Sidebar/Sidebar.js';
 
 
 // Separate component for the Account details
