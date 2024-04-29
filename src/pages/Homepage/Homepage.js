@@ -60,9 +60,11 @@ const Homepage = (props) => {
       <div className="Sidebar">
         <Sidebar />
       </div>
+
       <div className='Login_popup'>
         <Loginpopup showPopup={showPopup} setShowPopup={setShowPopup} />
       </div>
+
     </div>
   );
 };

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Sidebar  from '../../Components/Sidebar/Sidebar';
 
+
+
+
 const Submission = ({ gender, month, day, year }) => {
     const [apiData, setApiData] = useState(null);
     const [showPopup, setShowPopup] = useState(false); // State to control popup visibility

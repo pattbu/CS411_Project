@@ -45,11 +45,11 @@ body {
 @keyframes moveAnimation {
   0%, 100% {
     background-position: 0% 50%; /* Initial position */
-    transform-origin: translateY(0px) rotate(0deg) scale(1);
+    transform: translateY(0px) rotate(0deg) scale(1);
   }
   50% {
     background-position: 100% 50%; /* Intermediate position */
-    transform-origin: translateY(4px) rotate(0.5deg) scale(0.99);
+    transform: translateY(4px) rotate(0.5deg) scale(0.99);
   }
 }
 
