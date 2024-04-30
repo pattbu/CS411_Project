@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Sidebar  from '../../Components/Sidebar/Sidebar';
 import { useParams } from 'react-router-dom';
+import axios from "axios";
 
 
 const Submission = () => {
@@ -23,7 +24,7 @@ const Submission = () => {
 
     const fetchBabyName = async (gender, day) => {
         try {
-            const response = await fetch(`/api/babynames?gender=${gender}`);
+            const response = await axios.get(`/api/babynames?gender=${gender}`);
           if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
           }
@@ -37,7 +38,7 @@ const Submission = () => {
 
     const fetchSpecial = async (month, day) => {
         try {
-            const response = await fetch(`/api/special?month=${month}&day=${day}`);
+            const response = await axios.get(`/api/special?month=${month}&day=${day}`);
             if (!response.ok) {
                 throw new Error(`Error: ${response.status}`);
             }
