@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Sidebar from '../../Components/Sidebar/Sidebar.js';
+
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -17,7 +19,7 @@ const Login = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ email }),
             });
 
             if (response.ok) {
@@ -78,57 +80,18 @@ const Login = () => {
     return (
 	<GoogleOAuthProvider clientId="317132464294-f5d05oi2oooico1m50kkr3i4v5i51nbc.apps.googleusercontent.com">
         <div>
-            <h1>Login Page</h1>
-            <form onSubmit={handleLogin}>
-                <div>
-                    <label>Email:</label>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
-                <button type="submit">Login</button>
-            </form>
-
-            <h2>Sign Up</h2>
-            <form onSubmit={handleSignup}>
-                <div>
-                    <label>Email:</label>
-                    <input
-                        type="email"
-                        value={signupEmail}
-                        onChange={(e) => setSignupEmail(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        value={signupPassword}
-                        onChange={(e) => setSignupPassword(e.target.value)}
-                        required
-                    />
-                </div>
-                <button type="submit">Sign Up</button>
-            </form>
 			<GoogleLogin
-			  onSuccess={credentialResponse}
+			  onSuccess={credentialResponse => {
+                console.log(credentialResponse);
+                
+              }}
 			  onError={() => {
 				console.log('Login Failed');
 			  }}
 			/>
+            <div className="Sidebar">
+                <Sidebar />
+            </div>
         </div>
 	</GoogleOAuthProvider>
     );
