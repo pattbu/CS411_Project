@@ -1,34 +1,54 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Sidebar  from '../../Components/Sidebar/Sidebar';
+import { useParams } from 'react-router-dom';
+import axios from "axios";
 
 import axios from 'axios';
 
 const Submission = () => {
     const [apiData, setApiData] = useState(null);
+    const [nameapi, setNameApi] = useState(null);
     const [showPopup, setShowPopup] = useState(false);
+    const location = useLocation();
+    const params = new URLSearchParams(location.search);
+    const gender = params.get('gender');
+    const month = params.get('month');
+    const day = params.get('day');
+    const year = params.get('year');
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const options = {
-                    method: 'GET',
-                    url: 'https://day-special-finder-api.p.rapidapi.com/all/04/30',
-                    headers: {
-                        'X-RapidAPI-Key': 'f3ecad7dd9mshd03659d07014c7cp1e6a74jsn817e07d03b3d',
-                        'X-RapidAPI-Host': 'day-special-finder-api.p.rapidapi.com'
-                    }
-                };
+        console.log(gender, month, day, year);
+        fetchBabyName(gender, day);
+        fetchSpecial(month,day);
+    },[gender, day]);
 
-                const response = await axios.request(options);
-                setApiData(response.data);
-            } catch (error) {
-                console.error(error);
+    const fetchBabyName = async (gender, day) => {
+        try {
+            const response = await axios.get(`/api/babynames?gender=${gender}`);
+          if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+          }
+          const data = await response.json();
+          setNameApi(data); 
+        } catch (error) {
+          console.error('Error fetching baby name:', error);
+          setNameApi(null);
+        }
+    };
+
+    const fetchSpecial = async (month, day) => {
+        try {
+            const response = await axios.get(`/api/special?month=${month}&day=${day}`);
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
             }
-        };
-
-        fetchData();
-    }, []);
+            const data = await response.json();
+            setApiData(data);
+        } catch (error) {
+            console.error('Error fetching special data:', error);
+        }
+    };
 
     const handleClosePopup = () => {
         setShowPopup(false);
@@ -42,7 +62,8 @@ const Submission = () => {
                 {apiData ? (
                     <p>{apiData}</p>
                 ) : (
-                    <p>Loading...</p>
+                    <p>Loading...{gender}</p>
+                    
                 )}
             </div>
             {/* Popup box for signin/signup */}
@@ -52,12 +73,22 @@ const Submission = () => {
                         <span className="close" onClick={handleClosePopup}>&times;</span>
                         <h2>Sign In / Sign Up</h2>
                         <p>Sign in or sign up to save your results!</p>
+                        
                         {/* Add sign in/sign up form here */}
                     </div>
                 </div>
             )}
             <div>
                 <Sidebar/>
+            </div>
+            <div className="api-results">
+                {apiData && (
+                    <div>
+                        <h2>API Results</h2>
+                        <p>{apiData}</p>
+                        {/* Add additional content here for API results */}
+                    </div>
+                )}
             </div>
         </div>
     );

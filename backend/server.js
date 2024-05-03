@@ -2,13 +2,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
-const routes = require("./routes");
+const routes = require("./routes.js");
 const cors = require("cors");
 
 
 const app = express();
 app.use(cors());
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 console.log('MongoDB URI:', process.env.MONGODB_URI);
 
@@ -21,6 +21,7 @@ mongoose
   .catch((err) => console.error("Could not connect to MongoDB:", err));
 
 app.use(express.json());
+
 app.use("/", routes);
 
 app.listen(port, () => {
