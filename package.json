@@ -19,6 +19,7 @@
     "react-scripts": "5.0.1",
     "server": "^1.0.39",
     "story": "^1.0.1",
+    "universal-cookie": "^7.1.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

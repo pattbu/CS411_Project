@@ -7,6 +7,27 @@ const router = express.Router();
 
 
 
+
+// Fetch special date info from API
+router.get('/special-days', async (req, res) => {
+  try {
+    const options = {
+      method: 'GET',
+      url: 'https://day-special-finder-api.p.rapidapi.com/all/04/30',
+      headers: {
+        'X-RapidAPI-Key': 'f3ecad7dd9mshd03659d07014c7cp1e6a74jsn817e07d03b3d',
+        'X-RapidAPI-Host': 'day-special-finder-api.p.rapidapi.com'
+      }
+    };
+
+    const response = await axios.request(options);
+    res.json(response.data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 //Creating a new User
 router.post('/create-user', async(req,res) =>{
   try{
